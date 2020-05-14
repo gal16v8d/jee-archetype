@@ -11,55 +11,6 @@
 
 	<name>${rootArtifactId}</name>
 
-	<properties>
-		<!-- Gral settings -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.build.targetEncoding>UTF-8</project.build.targetEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<additionalparam>-Xdoclint:none</additionalparam>
-		
-		<!-- Testing dependencies -->
-		<junit.version>4.12</junit.version>
-		<jassert.version>3.11.1</jassert.version>
-		<mockito.version>1.10.19</mockito.version>
-		<zohhak.version>1.1.1</zohhak.version>
-		<resteasy.version>3.0.14.Final</resteasy.version>
-
-		<!-- Gral dependencies -->
-		<javaee.api.version>7.0</javaee.api.version>
-		<slf4j.version>1.7.5</slf4j.version>
-		<http.client.version>4.5</http.client.version>
-
-		<!-- Mvn plugins -->
-		<mvn.release.plugin.version>2.5.3</mvn.release.plugin.version>
-		<mvn.compiler.plugin.version>3.8.0</mvn.compiler.plugin.version>
-		<mvn.failsafe.plugin.version>3.0.0-M3</mvn.failsafe.plugin.version>
-		<mvn.surefire.plugin.version>3.0.0-M3</mvn.surefire.plugin.version>
-		<mvn.jacoco.plugin.version>0.8.4</mvn.jacoco.plugin.version>
-		<mvn.javadoc.plugin.version>3.0.1</mvn.javadoc.plugin.version>
-		<mvn.source.plugin.version>3.0.1</mvn.source.plugin.version>
-		<mvn.fmt.plugin.version>2.10.0</mvn.fmt.plugin.version>
-
-		<mvn.ear.plugin.version>3.0.1</mvn.ear.plugin.version>
-		<mvn.ejb.plugin.version>2.5.1</mvn.ejb.plugin.version>
-		<mvn.war.plugin.version>3.2.2</mvn.war.plugin.version>
-		<!-- Code coverage -->
-		<!-- If true skips UT test execution -->
-		<skip.unit.tests>false</skip.unit.tests>
-		<!-- If true skips IT test execution -->
-		<skip.integration.tests>false</skip.integration.tests>
-		<!-- It centralize the jacoco reports for sonarqube -->
-		<jacoco.ut.reportPath>${project.basedir}/../target/coverage-report/jacoco-ut.exec</jacoco.ut.reportPath>
-		<jacoco.ut.reportPath.site>${project.reporting.outputDirectory}/jacoco-ut</jacoco.ut.reportPath.site>
-		<jacoco.it.reportPath>${project.basedir}/../target/coverage-report/jacoco-it.exec</jacoco.it.reportPath>
-		<jacoco.it.reportPath.site>${project.reporting.outputDirectory}/jacoco-it</jacoco.it.reportPath.site>
-
-		<!-- Other versions -->
-		<ejb.version>3.2</ejb.version>
-		<ear.version>6</ear.version>
-	</properties>
-	
 	<repositories>
 		<repository>
 			<id>central</id>
@@ -71,41 +22,112 @@
 		</repository>
 	</repositories>
 
+	<properties>
+		<!-- Gral settings -->
+		<project.encoding>UTF-8</project.encoding>
+		<project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+		<project.build.targetEncoding>${project.encoding}</project.build.targetEncoding>
+		<project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<!-- Mvn plugins -->
+		<mvn.compiler.plugin.version>3.8.1</mvn.compiler.plugin.version>
+		<mvn.release.plugin.version>2.5.3</mvn.release.plugin.version>
+		<mvn.javadoc.plugin.version>3.1.1</mvn.javadoc.plugin.version>
+		<mvn.failsafe.plugin.version>3.0.0-M4</mvn.failsafe.plugin.version>
+		<mvn.surefire.plugin.version>3.0.0-M4</mvn.surefire.plugin.version>
+		<mvn.jacoco.plugin.version>0.8.5</mvn.jacoco.plugin.version>
+		<mvn.source.plugin.version>3.2.0</mvn.source.plugin.version>
+		<mvn.fmt.plugin.version>2.10.0</mvn.fmt.plugin.version>
+		<mvn.ear.plugin.version>3.0.1</mvn.ear.plugin.version>
+		<mvn.ejb.plugin.version>2.5.1</mvn.ejb.plugin.version>
+		<mvn.war.plugin.version>3.2.2</mvn.war.plugin.version>
+
+		<doc-lint>none</doc-lint>
+		<!-- If true skips UT test execution -->
+		<skip.unit.tests>false</skip.unit.tests>
+		<!-- If true skips IT test execution -->
+		<skip.integration.tests>false</skip.integration.tests>
+
+		<!-- JaCoCo props -->
+		<jacoco.ut.exec>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.ut.exec>
+		<jacoco.ut.reportPath>${project.build.directory}/coverage-reports/jacoco-ut</jacoco.ut.reportPath>
+		<jacoco.it.exec>${project.build.directory}/coverage-reports/jacoco-it.exec</jacoco.it.exec>
+		<jacoco.it.reportPath>${project.build.directory}/coverage-reports/jacoco-it</jacoco.it.reportPath>
+
+		<ear.version>6</ear.version>
+		<ejb.version>3.2</ejb.version>
+
+		<javaee-api.version>7.0</javaee-api.version>
+		<lombok.version>1.18.12</lombok.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<swagger.version>1.5.10</swagger.version>
+
+		<log4j.bridge.version>2.9.0</log4j.bridge.version>
+		<log4j.version>2.11.1</log4j.version>
+		<resteasy.version>3.0.14.Final</resteasy.version>
+		<junit.version>5.5.2</junit.version>
+		<mockito.version>3.2.4</mockito.version>
+	</properties>
+
 	<!-- Child projects inherit this -->
 	<dependencies>
-		<!-- For testing purposes -->
 		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>${jassert.version}</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
+			<artifactId>mockito-junit-jupiter</artifactId>
 			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Logger Test -->
 		<dependency>
-			<groupId>com.googlecode.zohhak</groupId>
-			<artifactId>zohhak</artifactId>
-			<version>${zohhak.version}</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j.bridge.version}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -129,7 +151,7 @@
 			<dependency>
 				<groupId>javax</groupId>
 				<artifactId>javaee-api</artifactId>
-				<version>${javaee.api.version}</version>
+				<version>${javaee-api.version}</version>
 				<scope>provided</scope>
 			</dependency>
 
@@ -141,10 +163,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-				<scope>provided</scope>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-jaxrs</artifactId>
+				<version>${swagger.version}</version>
 			</dependency>
 
 			<!-- For it test -->
@@ -366,6 +387,9 @@
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>${mvn.javadoc.plugin.version}</version>
+				<configuration>
+					<doclint>${doc-lint}</doclint>
+				</configuration>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -374,7 +398,7 @@
 						</goals>
 						<configuration>
 							<!-- add this to disable checking -->
-							<additionalparam>${additionalparam}</additionalparam>
+							<doclint>${doc-lint}</doclint>
 						</configuration>
 					</execution>
 					<execution>
@@ -383,8 +407,7 @@
 							<goal>jar</goal>
 						</goals>
 						<configuration>
-							<detectLinks>true</detectLinks>
-							<additionalparam>${additionalparam}</additionalparam>
+							<doclint>${doc-lint}</doclint>
 						</configuration>
 					</execution>
 				</executions>

@@ -17,6 +17,12 @@
         <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
     </servlet>
     
+    <servlet>
+		<servlet-name>SwaggerBootstrap</servlet-name>
+		<servlet-class>package.classname</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+    
 	<context-param>
 		<param-name>resteasy.scan</param-name>
 		<param-value>true</param-value>

@@ -22,7 +22,6 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>${rootArtifactId}-ejb</artifactId>
-			<version>${version}</version>
 			<type>ejb</type>
 		</dependency>
 
@@ -35,6 +34,10 @@
 		<!-- The following are dependencies from the rest war since that is a skinny 
 			war, we need to include its dependencies in the ear since the ear plugin 
 			assumes fat wars and doesn't include transitive dependencies -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
