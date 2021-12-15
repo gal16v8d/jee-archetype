@@ -13,7 +13,7 @@ also on src\main\resources\META-INF\maven you will find the metadata file, for m
 After make the changes you can install it locally using -> **mvn clean install** command.
 
 For generate a base project using the archetype you can use a command like this:
-**mvn archetype:generate -DarchetypeGroupId=co.com.gsdd -DarchetypeArtifactId=jee7 -DarchetypeVersion=1.0.003 -DgroupId=your_group_id -DartifactId=your_artifact_id**
+**mvn archetype:generate -DarchetypeGroupId=com.gsdd -DarchetypeArtifactId=jee7 -DarchetypeVersion=1.0.003 -DgroupId=your_group_id -DartifactId=your_artifact_id**
 
 ## Contributors
 
