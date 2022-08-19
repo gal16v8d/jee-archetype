@@ -61,14 +61,14 @@
 		<ejb.version>3.2</ejb.version>
 
 		<javaee-api.version>7.0</javaee-api.version>
-		<lombok.version>1.18.22</lombok.version>
+		<lombok.version>1.18.24</lombok.version>
 		<slf4j.version>1.7.32</slf4j.version>
 		<swagger.version>1.5.10</swagger.version>
 
-		<log4j.version>2.16.0</log4j.version>
+		<log4j.version>2.18.0</log4j.version>
 		<resteasy.version>3.0.14.Final</resteasy.version>
-		<junit.version>5.7.2</junit.version>
-		<mockito.version>3.9.0</mockito.version>
+		<junit.version>5.9.0</junit.version>
+		<mockito.version>4.7.0</mockito.version>
 	</properties>
 
 	<!-- Child projects inherit this -->
