@@ -11,6 +11,10 @@
 	<packaging>maven-archetype</packaging>
 
 	<properties>
+	<project.encoding>UTF-8</project.encoding>
+		<project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+		<project.build.targetEncoding>${project.encoding}</project.build.targetEncoding>
+		<project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
 		<mvn.archetype.plugin.version>3.0.1</mvn.archetype.plugin.version>
 	</properties>
 
